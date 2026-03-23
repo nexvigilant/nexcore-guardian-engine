@@ -1,0 +1,60 @@
+
+[package]
+name = "nexcore-guardian-engine"
+version = "1.0.0"
+edition = "2024"
+authors = ["NexVigilant Team <team@nexvigilant.com>"]
+license = "LicenseRef-Proprietary"
+repository = "https://github.com/nexvigilant/nexcore"
+rust-version = "1.85"
+description = "Guardian homeostasis engine — SENSE→COMPARE→ACT control loop with threat sensing"
+
+[dependencies]
+nexcore-error = { workspace = true }
+nexcore-lex-primitiva = { version = "0.1.0", path = "../nexcore-lex-primitiva", registry = "nexcore" }
+nexcore-tov = { version = "1.0.0", path = "../nexcore-tov", registry = "nexcore" }
+nexcore-dtree = { version = "1.0.0", path = "../nexcore-dtree", registry = "nexcore" }
+nexcore-cytokine = { version = "1.0.0", path = "../nexcore-cytokine", registry = "nexcore" }
+nexcore-ribosome = { version = "1.0.0", path = "../nexcore-ribosome", registry = "nexcore" }
+nexcore-primitives = { workspace = true }
+nexcore-brain = { version = "1.0.0", path = "../nexcore-brain", registry = "nexcore" }
+nexcore-pv-core = { version = "1.0.0", path = "../nexcore-pv-core", registry = "nexcore" }
+nexcore-id = { version = "0.1.0", path = "../nexcore-id", features = ["serde"], registry = "nexcore" }
+antitransformer = { version = "1.0.0", path = "../antitransformer", registry = "nexcore" }
+stem-math = { version = "0.1.0", path = "../stem-math", registry = "nexcore" }
+nexcore-integumentary = { version = "1.0.0", path = "../nexcore-integumentary", registry = "nexcore" }
+nexcore-skeletal = { version = "1.0.0", path = "../nexcore-skeletal", registry = "nexcore" }
+nexcore-muscular = { version = "1.0.0", path = "../nexcore-muscular", registry = "nexcore" }
+nexcore-circulatory = { version = "1.0.0", path = "../nexcore-circulatory", registry = "nexcore" }
+nexcore-respiratory = { version = "1.0.0", path = "../nexcore-respiratory", registry = "nexcore" }
+nexcore-digestive = { version = "1.0.0", path = "../nexcore-digestive", registry = "nexcore" }
+nexcore-lymphatic = { version = "1.0.0", path = "../nexcore-lymphatic", registry = "nexcore" }
+nexcore-nervous = { version = "1.0.0", path = "../nexcore-nervous", registry = "nexcore" }
+nexcore-hormones = { version = "1.0.0", path = "../nexcore-hormones", registry = "nexcore" }
+nexcore-urinary = { version = "1.0.0", path = "../nexcore-urinary", registry = "nexcore" }
+nexcore-reproductive = { version = "1.0.0", path = "../nexcore-reproductive", registry = "nexcore" }
+nexcore-browser = { version = "0.1.0", path = "../nexcore-browser", optional = true, registry = "nexcore" }
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.120"
+nexcore-chrono = { workspace = true }
+tracing = "0.1.40"
+reqwest = { version = "0.12.5", features = ["json"] }
+dashmap = "6.0.1"
+async-trait = "0.1.81"
+toml = "0.8.15"
+tokio = { version = "1.38.0", features = ["rt-multi-thread", "macros", "sync"] }
+
+nexcore-insight = { version = "0.1.0", path = "../nexcore-insight", optional = true, registry = "nexcore" }
+
+[features]
+default = ["insight"]
+insight = ["dep:nexcore-insight"]
+browser = ["dep:nexcore-browser"]
+
+[dev-dependencies]
+futures = "0.3.30"
+tempfile = "3.10.1"
+
+
+[lints]
+workspace = true
